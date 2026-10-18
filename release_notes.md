@@ -1,29 +1,32 @@
-## MathEd Type v0.1.63 - All-in-One Windows Installer
+## MathEd Type v0.1.64 - Modern English-Only UI & License Management
 
-This release provides the standalone all-in-one setup installer for **MathEd Type**, bundling the desktop application, Microsoft Word and PowerPoint COM add-in, and OLE equation server.
+This release provides the standalone all-in-one setup installer for **MathEd Type v0.1.64**, featuring a modern English-only license management interface, self-service local license deactivation, and cleaner status bar layout.
 
 ### 🌟 What's New & Included
-* **License Information & Expiration UI**:
-  - Direct access anytime via `Help` -> `License Information...` (`ព័ត៌មានអាជ្ណ្ណប័ណ្ណ`).
-  - Clear visual expiration date display (e.g. `18/10/2027`) and days remaining countdown (`365d left` / `នៅសល់ 365 ថ្ងៃ`).
-  - Active / Expired status indicators with bilingual Khmer and English labels.
-  - 1-Click Copy Machine ID button for streamlined key generation.
-  - Built-in renewal / license key update form.
-  - Real-time license status badge in the bottom status bar.
-* **All-in-One Setup**: A single self-contained setup `.exe` (~80 MB) ready to install on any Windows 10 or Windows 11 computer with zero manual developer setup.
-* **Microsoft Word & PowerPoint Ribbon Add-in**: Automatically registers and activates ribbon commands for inserting inline and display equations.
-* **OLE 2.0 Equation Editing**: Double-clicking an inserted equation in Word automatically launches MathEd Type to edit the equation and updates the document seamlessly.
-* **Optimized Startup Behavior**: MathEd Type no longer auto-launches in the background when Word starts up. It launches strictly when an equation is created or edited.
-* **In-App Auto Updates**: Built-in support for checking and downloading updates directly from the Help menu with `latest.yml` manifests.
-* **Per-User Setup**: Installs to `%LOCALAPPDATA%\Programs\MathEd Type` without requiring administrator privileges or UAC prompts.
-* **Built-in Uninstaller**: Fully integrated with Windows Settings and Control Panel for clean removal.
+* **Ultra-Modern License Information UI**:
+  - Direct access anytime via `Help` -> `License Information...`.
+  - 100% Pure English interface with modern typography and refined card geometry.
+  - Modern Hero status banner featuring active status dot indicator (`● Active License`).
+  - Clear visual expiration date display (e.g. `Oct 18, 2027`) and days remaining countdown (`365d left`).
+  - Monospace Machine Hardware ID with 1-click `Copy ID` button and animated feedback (`✓ Copied!`).
+  - Seamless inline key renewal / activation form with smooth transition.
+* **Self-Service License Deactivation ("Clear Local License")**:
+  - Built-in `Deactivate License` button to clear and unlink the local license from the current machine without reinstalling.
+  - Automatically resets application state to unregistered/trial mode.
+* **Streamlined Workspace**:
+  - Removed bottom status bar license badge for a distraction-free editing canvas.
+* **All-in-One Standalone Setup**:
+  - Single standalone setup installer (~80 MB) ready for any Windows 10 or Windows 11 device.
+  - Bundles the desktop application, Microsoft Word and PowerPoint COM add-in, and OLE equation server.
+* **Auto-Update Support**:
+  - In-app checking and update delivery powered by `latest.yml` manifests.
 
 ### 📥 Downloads
 | File | Description | Size |
 | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.63.exe`** | Versioned standalone installer | 80.66 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.66 MB |
+| **`MathEdType-Setup-v0.1.64.exe`** | Versioned standalone installer | 80.67 MB |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.67 MB |
 | **`latest.yml`** | Auto-updater release manifest | 352 B |
 
 ### 🛠️ Verification & SHA256 Checksum
-* `32E6B4DB31FD2408FA598DBB0098FEEB56AAA942B64CBF3BF685E45D40854A54`
+* `EF7E0CE835E13CC7EF3E17BB05FC04936A506C63E54077118549F59F5BE27C57`
