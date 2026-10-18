@@ -1,6 +1,6 @@
 # MathEd Type for Windows 📐
 
-[![Release Version](https://img.shields.io/badge/Release-v0.1.65-blue?style=flat-square&logo=github)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
+[![Release Version](https://img.shields.io/badge/Release-v0.1.66-blue?style=flat-square&logo=github)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 [![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D4?style=flat-square&logo=windows)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 [![License](https://img.shields.io/badge/License-Proprietary-green?style=flat-square)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 
@@ -14,11 +14,11 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 <p align="center">
   <a href="https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup.exe">
-    <img src="https://img.shields.io/badge/⬇️%20Download-MathEd%20Type%20v0.1.65%20(Windows%20Installer)-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download MathEd Type" />
+    <img src="https://img.shields.io/badge/⬇️%20Download-MathEd%20Type%20v0.1.66%20(Windows%20Installer)-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download MathEd Type" />
   </a>
 </p>
 
-*Alternative download link:* [**`MathEdType-Setup-v0.1.65.exe` (Direct Download)**](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup-v0.1.65.exe)
+*Alternative download link:* [**`MathEdType-Setup-v0.1.66.exe` (Direct Download)**](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup-v0.1.66.exe)
 
 ---
 
