@@ -65,9 +65,9 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 ## 📋 Release Information
 
-* **Latest Version**: `v0.1.67` (Hardened Security Edition)
+* **Latest Version**: `v0.1.67` (100% Cryptographic Ed25519 Edition)
 * **Installer Name**: `MathEdType-Setup-v0.1.67.exe` (and `MathEdType-Setup.exe`)
-* **Package Size**: `80.69 MB`
-* **SHA256**: `BBDFAAB7F0FD3D3E64AB4FEA9A277CF72AD9C6472707FB9FF41C3AE5D41C2730`
+* **Package Size**: `80.7 MB`
+* **SHA256**: `265D6CD19405122FAA5A0AE734CAF146144E40D0A104EF62D9F85ADAA8F9DDD5`
 * **Release Date**: October 2026
 

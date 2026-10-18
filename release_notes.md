@@ -14,25 +14,22 @@ This release delivers the strongest security hardening architecture for **MathEd
     - `EnableNodeOptionsEnvironmentVariable: false` - Disables `NODE_OPTIONS` environment variable script injection.
     - `OnlyLoadAppFromAsar: true` - Forces the runtime to only accept trusted packaged `app.asar`.
 * **Anti-Debugging & DevTools Lockdown**:
-  - Real-time CLI argument scanner terminating the process immediately if `--remote-debugging-port`, `--js-flags`, or debugger pipes are detected.
-  - Automatic closure of Developer Tools if opened.
-  - Suppression of developer keyboard shortcuts (`F12`, `Ctrl+Shift+I`, `Ctrl+Shift+J`).
-* **Audited Security Remediations (Enterprise-Grade Posture)**:
-  - **Rotated Ed25519 Cryptographic Keypair**: Private key strictly isolated from source repositories and stored offline only.
-  - **4-Anchor Anti-Reset Trial Guard**: Hardware-bound trial token anchored across primary file, primary registry, stealth LocalAppData, and hidden COM CLSID registry key. Any attempt to reset the trial by wiping primary storage is trapped and locked.
-  - **Trial Alignment**: Full 30-day hardware-bound trial.
+* **100% Cryptographic Ed25519 Licensing Architecture**:
+  - **Eliminated Client-Side Auto-Trial**: Purged `trial-guard.js`, client-side HMAC secrets, local clock anchors, and trial storage files.
+  - **Hardware-Bound On-Demand Trial Keys**: Trial licenses are issued strictly via the developer's Ed25519 offline private key, mathematically bound to the customer's hardware Machine ID (`m: HWID`, `t: 'trial'`, `exp: timestamp`).
+  - **Zero Reset Vector**: Deleting local files or registry keys simply returns the app to an unactivated state; no local trial engine exists to reset.
   - **Strict Fatal Fuse Enforcement**: Automated build fails immediately if Electron security fuses cannot be permanently applied.
-  - **Clean Bytecode Architecture**: Legacy stubs and dummy mockGuard eliminated; live cryptographic verification strictly enforced.
+  - **Live Cryptographic Integrity Table**: Active SHA-256 integrity verification across all core bytecode modules.
 
 ### 📥 Downloads
 | File | Description | Size |
 | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.69 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.69 MB |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.7 MB |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.7 MB |
 | **`latest.yml`** | Auto-updater release manifest | 352 B |
 
 ### 🛠️ Verification & SHA256 Checksum
-* `BBDFAAB7F0FD3D3E64AB4FEA9A277CF72AD9C6472707FB9FF41C3AE5D41C2730`
+* `265D6CD19405122FAA5A0AE734CAF146144E40D0A104EF62D9F85ADAA8F9DDD5`
 
 
 
