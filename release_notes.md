@@ -1,36 +1,39 @@
-## MathEd Type v0.1.67 - 4-Layer Anti-Crack & Enterprise Hardening Defense
+## MathEd Type v0.1.67 - Enterprise Hardening & 5-Layer Anti-Tamper Defense
 
-This release delivers the strongest security hardening architecture for **MathEd Type**, defending the application against all four major reverse engineering and cracking vectors: binary patching, memory debugging, code injection, and asar tampering.
+This release incorporates comprehensive security enhancements, addressing all reverse engineering and cracking vectors with cryptographic and OS-level protections:
 
-### 🌟 What's New & Included
+### 🌟 Key Security & Architecture Enhancements
+* **Authenticated HTTPS Network Time Verification**:
+  - Secure TLS Date queries against trusted multi-source providers (Cloudflare, Google, Microsoft) with automatic failover.
+  - Revokes trial keys immediately if network time confirms the expiration date has passed, completely immune to local PC clock manipulation.
+* **Kernel Monotonic Clock Tracking (`GetTickCount64` / `os.uptime`)**:
+  - Continuous monotonic hardware-clock tracking makes it mathematically impossible to roll back the system clock during runtime to prolong expired sessions.
+* **Hardware-Bound Dynamic HMAC Secret**:
+  - Monotonic timestamp anchors are cryptographically signed using hardware entropy derived from Windows `MachineGuid` and salted key derivation rather than static strings.
+* **NTFS DACL / ACL Binary Hardening (Mitigating CVE-2025-55305 / GHSA-vmqv-hx8q-j7mg)**:
+  - Automated NSIS post-install security lock (`icacls ... /deny ...:(WD,AD,WEA,WA)`) applied directly to `app.asar`, `MathEd Type.exe`, and V8 snapshots (`v8_context_snapshot.bin`, `snapshot_blob.bin`).
+  - Blocks local user processes and unauthorized scripts from writing or modifying runtime binaries.
+* **Native Windows ASAR Integrity Validation Fuse (`EnableEmbeddedAsarIntegrityValidation`)**:
+  - Embedded Windows PE `INTEGRITY / ELECTRONASAR` resource block containing cryptographic SHA-256 header hash of `resources\app.asar`.
+  - Electron fuses `EnableEmbeddedAsarIntegrityValidation: true` and `OnlyLoadAppFromAsar: true` enforced at native C++ level.
+  - If `app.asar` is modified or repacked by even 1 byte, Electron aborts execution immediately.
 * **Complete Main Process V8 Bytecode Compilation (`main-core.jsc`)**:
-  - The entire core main process logic (window lifecycle, IPC handlers, license manager, security gatekeepers) has been compiled into native V8 bytecode (`main-core.jsc`).
-  - `main.cjs` has been reduced to a simple 13-line bootstrapper.
-  - Inside `app.asar`, there is **zero plaintext application JavaScript**. Unpacking the archive yields only compiled binary bytecode that cannot be decompiled.
-* **Electron Fuses Native Binary Hardening**:
-  - Permanent binary-level security flags flipped on `MathEd Type.exe`:
-    - `RunAsNode: false` - Prevents crackers from launching the executable as a headless Node.js runner to extract code.
-    - `EnableNodeCliInspectArguments: false` - Permanently disables `--inspect` and `--inspect-brk` in the native C++ binary.
-    - `EnableNodeOptionsEnvironmentVariable: false` - Disables `NODE_OPTIONS` environment variable script injection.
-    - `OnlyLoadAppFromAsar: true` - Forces the runtime to only accept trusted packaged `app.asar`.
-* **Anti-Debugging & DevTools Lockdown**:
+  - 100% of the core main process logic (window lifecycle, IPC handlers, license manager, security gatekeepers) is compiled into native V8 bytecode.
+  - `main.cjs` is reduced to a minimal bootstrapper; zero plaintext application JavaScript exists in the packaged distribution.
 * **100% Cryptographic Ed25519 Licensing Architecture**:
-  - **Eliminated Client-Side Auto-Trial**: Purged `trial-guard.js`, client-side HMAC secrets, local clock anchors, and trial storage files.
-  - **Hardware-Bound On-Demand Trial Keys**: Trial licenses are issued strictly via the developer's Ed25519 offline private key, mathematically bound to the customer's hardware Machine ID (`m: HWID`, `t: 'trial'`, `exp: timestamp`).
-  - **Zero Reset Vector**: Deleting local files or registry keys simply returns the app to an unactivated state; no local trial engine exists to reset.
-  - **Strict Fatal Fuse Enforcement**: Automated build fails immediately if Electron security fuses cannot be permanently applied.
-  - **Live Cryptographic Integrity Table**: Active SHA-256 integrity verification across all core bytecode modules.
+  - Complete elimination of local automatic trials. Unactivated installations require an Ed25519 digital signature key.
+  - Trial keys strictly require hardware Machine ID binding (`m !== '*'`) and positive expiration (`exp > iss > 0`).
+  - Deleting local files or registry keys simply resets the app to an unactivated state; no local trial engine exists to reset.
+* **Authenticode Code Signing & RFC 3161 Timestamping**:
+  - `MathEd Type.exe` and installers are digitally signed and timestamped using DigiCert RFC 3161 timestamp authorities.
 
 ### 📥 Downloads
 | File | Description | Size |
 | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.7 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.7 MB |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.83 MB |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.83 MB |
 | **`latest.yml`** | Auto-updater release manifest | 352 B |
 
-### 🛠️ Verification & SHA256 Checksum
-* `265D6CD19405122FAA5A0AE734CAF146144E40D0A104EF62D9F85ADAA8F9DDD5`
-
-
-
-
+### 🛠️ Verification & SHA256 Checksums
+* **`MathEdType-Setup-v0.1.67.exe`**: `B9A8FF34D1C3CD955B3AFA454DFFDDC423BC9ADACCBACDE57125BC1154665B97`
+* **`MathEdType-Setup.exe`**: `4CEE911C6E199A2212C413BD9D169805413DA5296BDB782869FDCDF5430DF776`
