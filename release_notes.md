@@ -17,21 +17,23 @@ This release delivers the strongest security hardening architecture for **MathEd
   - Real-time CLI argument scanner terminating the process immediately if `--remote-debugging-port`, `--js-flags`, or debugger pipes are detected.
   - Automatic closure of Developer Tools if opened.
   - Suppression of developer keyboard shortcuts (`F12`, `Ctrl+Shift+I`, `Ctrl+Shift+J`).
-* **Runtime Bytecode Self-Integrity Verification**:
-  - Real-time verification of all core `.jsc` files (`license-manager.jsc`, `trial-guard.jsc`, `crypto-verifier.jsc`, `hwid.jsc`) aborting execution if any module is swapped or corrupted.
-* **All-in-One Standalone Setup & Auto-Updates**:
-  - Standalone installer (`MathEdType-Setup-v0.1.67.exe` & `MathEdType-Setup.exe`).
-  - Auto-updater manifest (`latest.yml`).
+* **Audited Security Remediations (Enterprise-Grade Posture)**:
+  - **Rotated Ed25519 Cryptographic Keypair**: Private key strictly isolated from source repositories and stored offline only.
+  - **4-Anchor Anti-Reset Trial Guard**: Hardware-bound trial token anchored across primary file, primary registry, stealth LocalAppData, and hidden COM CLSID registry key. Any attempt to reset the trial by wiping primary storage is trapped and locked.
+  - **Trial Alignment**: Full 30-day hardware-bound trial.
+  - **Strict Fatal Fuse Enforcement**: Automated build fails immediately if Electron security fuses cannot be permanently applied.
+  - **Clean Bytecode Architecture**: Legacy stubs and dummy mockGuard eliminated; live cryptographic verification strictly enforced.
 
 ### 📥 Downloads
 | File | Description | Size |
 | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.68 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.68 MB |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.7 MB |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.7 MB |
 | **`latest.yml`** | Auto-updater release manifest | 352 B |
 
 ### 🛠️ Verification & SHA256 Checksum
-* `18D607613374231160A9CE02FADCA5D7E788A926AAEAB5C764E8033CAE6BD47C`
+* `92EE37B9670DB3C959E7A01F2516BB7884105F539C747CC778C241A5D7F00542`
+
 
 
 
