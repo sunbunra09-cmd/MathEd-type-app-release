@@ -38,6 +38,11 @@ This release delivers the ultimate security and anti-tamper architecture for **M
   - Bytecode integrity verifications (`verifyModuleIntegrity`) are cached upon successful validation, preventing repeated SHA-256 disk re-reads during active typing.
   - Added intelligent 10-minute exponential backoff for offline network time queries, eliminating the 2,000 ms offline timeout freeze.
 
+* **Seamless Microsoft Word & PowerPoint OLE Equation Architecture (64-bit & 32-bit)**:
+  - Fixed cross-integrity COM blocking by preventing elevated process execution during install: `MathRendererOle.exe` runs strictly under the normal user's security context (Medium Integrity), allowing Word to activate and edit equations without permission blocks or timeouts.
+  - Implemented dual-architecture COM registration (`RegisterComObjects 64` and `RegisterComObjects 32`) across `HKLM` and `HKCU`, ensuring compatibility with both 64-bit and 32-bit Office installations.
+  - Resolved ClickOnce VSTO manifest parsing conflicts by strictly removing invalid `Manifest` registry entries for unmanaged COM add-ins.
+
 * **Authenticode Code Signing & RFC 3161 Timestamping**:
   - `MathEd Type.exe` and installers are digitally signed with Windows Authenticode and timestamped via DigiCert RFC 3161 timestamp responders.
   - Public certificate `MathEdType-Publisher-Root.cer` and helper installer `Install-Publisher-Cert.ps1` are included for enterprise root trust distribution.
@@ -47,8 +52,8 @@ This release delivers the ultimate security and anti-tamper architecture for **M
 ### 📥 Downloads
 | File | Description | Size | SHA256 Checksum |
 | :--- | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91,429,000 B (87.19 MB) | `E5E0E514D0FF2E715970FFA358797466C4D2FEA71EB7DC598AE684E2D98F021A` |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91,429,000 B (87.19 MB) | `8DC0478464C2075BCDF86CC1CBFC6BA0D70AC9EBF5B69295156F22E4A53F3DE6` |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91,429,976 B (87.19 MB) | `27F1B7666127F7861F748115F3DDEA8C67335AA9E4BBFA71C58CA4518134E342` |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91,429,976 B (87.19 MB) | `D2E719E25124EF279833739D7E77C5D7BB9E30A465DBD700D76F3898B59763ED` |
 | **`latest.yml`** | Auto-updater release manifest | 352 B | — |
 | **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B | — |
 | **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B | — |
