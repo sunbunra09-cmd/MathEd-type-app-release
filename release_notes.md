@@ -1,39 +1,48 @@
-## MathEd Type v0.1.67 - Enterprise Hardening & 5-Layer Anti-Tamper Defense
+## MathEd Type v0.1.67 - Enterprise Hardening & Complete Tamper-Resistant Architecture
 
-This release delivers the ultimate security and anti-tamper architecture for **MathEd Type**, resolving all reverse engineering, clock tampering, and local privilege escalation vectors with cryptographic, OS-level, and framework-level protections:
+This release delivers the ultimate security and anti-tamper architecture for **MathEd Type**, resolving all reverse engineering, clock tampering, privilege escalation, and offline licensing bypass vectors with cryptographic, OS-level, and framework-level protections:
 
 ### 🌟 Key Security & Architecture Enhancements
+
 * **Patched Electron 35.7.5 Runtime (Mitigating CVE-2025-55305 / GHSA-vmqv-hx8q-j7mg)**:
   - Upgraded the underlying Electron framework to **Electron 35.7.5**, incorporating the official upstream security fix for CVE-2025-55305.
   - Native C++ ASAR integrity and Electron fuses (`EnableEmbeddedAsarIntegrityValidation: true`, `OnlyLoadAppFromAsar: true`, `RunAsNode: false`, `EnableNodeCliInspectArguments: false`, `EnableNodeOptionsEnvironmentVariable: false`) enforced directly on the native binary.
-* **Protected Installation Directory (`%ProgramFiles%\MathEd Type`)**:
-  - The installer now installs to `%ProgramFiles%\MathEd Type` with administrative execution privileges (`RequestExecutionLevel admin`).
-  - Standard user accounts in Windows have **Read & Execute ONLY** (zero write access, zero delete access, zero append access) under Program Files, eliminating the filesystem write-access prerequisite for ASAR modification.
-* **Comprehensive NTFS DACL / ACL Hardening**:
-  - NSIS installer applies strict `icacls ... /deny ...:(D,WD,AD,WEA,WA)` denying Delete `(D)`, Write Data `(WD)`, Append Data `(AD)`, Write Extended Attributes `(WEA)`, and Write Attributes `(WA)` with verified execution return codes.
-* **Cryptographically Bound Uptime & Clock Rollback Defense**:
-  - `license-manager.js` now cryptographically binds `lastSeen`, `lastUptime`, and `keyHash` together into the HMAC signature (`signRecord`).
-  - Tampering with `lastUptime` or `lastSeen` in local JSON files immediately breaks the HMAC signature and triggers anti-tamper revocation.
-* **Awaited Authenticated HTTPS Network Time Synchronization**:
-  - Startup checks now await HTTPS TLS network time queries (`ensureNetworkTime`) against Cloudflare, Google, and Microsoft before validating licenses.
-  - Expired licenses are immediately and irrevocably revoked before UI rendering, immune to local PC clock manipulation.
-* **Multi-Factor Dynamic HMAC Secret**:
-  - Derived dynamically at runtime from Hardware Machine ID, Windows Registry `MachineGuid`, Windows `DigitalProductId`, and Windows user account identity (`USERDOMAIN\USERNAME`) via multi-round SHA-512 hashing.
-* **Multi-Root Redundant Revocation Store**:
-  - Revocations are persisted redundantly across `HKCU\Software\MathEdType\Revocations`, hidden CLSID registry anchors, and a hidden system cache index file.
+
+* **Strict Non-Bypassable Program Files Installation & ACL Failure Checks**:
+  - The installer strictly installs to `$PROGRAMFILES64\MathEd Type` with administrative execution privileges (`RequestExecutionLevel admin`). The directory selection page (`MUI_PAGE_DIRECTORY`) has been intentionally removed so users cannot redirect the installation to user-writable folders.
+  - NSIS installer runs strict `icacls ... /deny ...:(D,WD,AD,WEA,WA)` with explicit exit code checks (`${If} $0 != 0`) ensuring standard users cannot modify, write, or delete app files.
+
+* **Comprehensive Full-Archive Bytecode Integrity Table (All 32 `.jsc` Modules)**:
+  - The static integrity table in `main-core.js` and build packaging now binds and cryptographically verifies **all 32 compiled `.jsc` bytecode modules** (including nested submodules) plus `v8_context_snapshot.bin` and `snapshot_blob.bin`.
+  - Startup integrity check aborts application launch immediately if any bytecode module or snapshot hash does not match.
+
+* **Immediate Tamper Revocation on Signature / Clock Mismatch**:
+  - `license-manager.js` signs `lastSeen`, `lastUptime`, and `keyHash` via dynamic multi-factor HMAC-SHA256 (`signRecord`).
+  - If a user rolls back their clock or modifies `lastSeen`/`lastUptime`, `verifyRecord` fails, and the key is **immediately and permanently revoked** (`revokeKey(keyHash)`) rather than merely discarded.
+
+* **Awaited Trusted Time & Gatekeeper Lockdown**:
+  - All IPC licensing handlers (`license-status`, `license-activate`, `license-clear`, `license-trial`) and core operation gatekeepers (`insert-into-word`, `update-in-word`, `copy-text`, `copy-equation`, `save-before-close`) strictly **await** trusted network time synchronization before evaluating entitlement.
+  - Synchronous unawaited bypasses are eliminated across the entire IPC bridge.
+
+* **5-Layer Redundant Revocation Store with Machine-Level Persistence**:
+  - Revocations are persisted across 5 separate stores, including machine-level stores that standard users cannot delete:
+    1. `HKLM\Software\MathEdType\Revocations` (Machine-level Registry)
+    2. `%ProgramData%\MathEdType\revocations.idx` (Machine-level File System)
+    3. `HKCU\Software\MathEdType\Revocations` (User Registry)
+    4. `HKCU\Software\Classes\CLSID\{D87A64B2-5B4E-436C-81F9-32F7F2E2C8A1}` (Hidden CLSID Anchor)
+    5. `%LOCALAPPDATA%\Microsoft\Windows\INetCache\revocations.idx` (Hidden Local AppData Store)
+
 * **Authenticode Code Signing & RFC 3161 Timestamping**:
   - `MathEd Type.exe` and installers are digitally signed with Windows Authenticode and timestamped via DigiCert RFC 3161 timestamp responders.
-  - Public certificate `MathEdType-Publisher-Root.cer` and helper installer `Install-Publisher-Cert.ps1` are included for full trust chain verification.
+  - Public certificate `MathEdType-Publisher-Root.cer` and helper installer `Install-Publisher-Cert.ps1` are included for enterprise root trust distribution.
+
+---
 
 ### 📥 Downloads
-| File | Description | Size |
-| :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91.01 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91.01 MB |
-| **`latest.yml`** | Auto-updater release manifest | 352 B |
-| **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B |
-| **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B |
-
-### 🛠️ Verification & SHA256 Checksums
-* **`MathEdType-Setup-v0.1.67.exe`**: `C536F7E2854AB4AA95E02067A1DB54058D0AAF9816A4F9EC365F3A85D838FEA4`
-* **`MathEdType-Setup.exe`**: `BCD590A9A458AADBA842E2A70F9989D75B3F1E8D11EBA6E99F1DF34855BA0782`
+| File | Description | Size | SHA256 Checksum |
+| :--- | :--- | :--- | :--- |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 95,427,144 B (91.01 MB) | `CD0BDB8DFE94DB1BB512A135E44B41FA56EFDA1E02FE318F0ABF3F74D28EE94D` |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 95,427,144 B (91.01 MB) | `2BBA6245202153A06B3D7AB610CDCFDFB2F5D0E3561C205D2889021D7CFA21B7` |
+| **`latest.yml`** | Auto-updater release manifest | 352 B | — |
+| **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B | — |
+| **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B | — |

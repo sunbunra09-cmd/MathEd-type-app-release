@@ -34,10 +34,10 @@ Click the button below to download the latest all-in-one standalone installer fo
   * MathEd Type stays closed in the background when Word or documents open.
   * Starts only when you explicitly click a ribbon button or double-click an equation.
 * **All-in-One Standalone Setup**:
-  * Single setup `.exe` (~80 MB) with zero external requirements.
+  * Single setup `.exe` (~91 MB) with zero external requirements.
   * No Node.js, npm, or developer SDKs needed on the client computer.
-* **No Administrator Privileges Required**:
-  * Installs cleanly to `%LOCALAPPDATA%\Programs\MathEd Type` without UAC elevation or admin passwords.
+* **Enterprise Hardening & System-Wide Installation**:
+  * Installs to `%PROGRAMFILES%\MathEd Type` with verified NTFS DACL write protections.
 * **Clean Uninstaller**:
   * Registered in Windows Settings / Control Panel with full automated uninstallation.
 
@@ -47,7 +47,7 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 | Specification | Requirement |
 | :--- | :--- |
-| **Operating System** | Windows 10 (1903+) or Windows 11 (64-bit / 32-bit) |
+| **Operating System** | Windows 10 (1903+) or Windows 11 (64-bit) |
 | **Microsoft Office** | Microsoft Word & PowerPoint 2013, 2016, 2019, 2021, 2024, or Microsoft 365 |
 | **Runtime** | .NET Framework 4.8 *(Built into all Windows 10/11 installations)* |
 | **Disk Space** | ~250 MB free space |
@@ -57,7 +57,7 @@ Click the button below to download the latest all-in-one standalone installer fo
 ## 📦 How to Install
 
 1. Download [`MathEdType-Setup.exe`](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup.exe).
-2. Double-click the downloaded setup executable and follow the quick installation wizard.
+2. Run the installer (requires Administrator elevation to install securely to Program Files).
 3. Open **Microsoft Word** — the **MathEd Type** tab is immediately available on your ribbon.
 4. Click **Inline Equation** or **Display Equation** to begin typing equations!
 
@@ -67,8 +67,8 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 * **Latest Version**: `v0.1.67` (Electron 35.7.5 Hardened Edition)
 * **Installer Name**: `MathEdType-Setup-v0.1.67.exe` (and `MathEdType-Setup.exe`)
-* **Package Size**: `91.01 MB`
-* **SHA256**: `C536F7E2854AB4AA95E02067A1DB54058D0AAF9816A4F9EC365F3A85D838FEA4`
+* **Package Size**: `95,427,144 bytes` (`91.01 MB`)
+* **SHA256 Checksums**:
+  - `MathEdType-Setup-v0.1.67.exe`: `CD0BDB8DFE94DB1BB512A135E44B41FA56EFDA1E02FE318F0ABF3F74D28EE94D`
+  - `MathEdType-Setup.exe`: `2BBA6245202153A06B3D7AB610CDCFDFB2F5D0E3561C205D2889021D7CFA21B7`
 * **Release Date**: October 2026
-
-
