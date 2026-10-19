@@ -1,39 +1,39 @@
 ## MathEd Type v0.1.67 - Enterprise Hardening & 5-Layer Anti-Tamper Defense
 
-This release incorporates comprehensive security enhancements, addressing all reverse engineering and cracking vectors with cryptographic and OS-level protections:
+This release delivers the ultimate security and anti-tamper architecture for **MathEd Type**, resolving all reverse engineering, clock tampering, and local privilege escalation vectors with cryptographic, OS-level, and framework-level protections:
 
 ### 🌟 Key Security & Architecture Enhancements
-* **Authenticated HTTPS Network Time Verification**:
-  - Secure TLS Date queries against trusted multi-source providers (Cloudflare, Google, Microsoft) with automatic failover.
-  - Revokes trial keys immediately if network time confirms the expiration date has passed, completely immune to local PC clock manipulation.
-* **Kernel Monotonic Clock Tracking (`GetTickCount64` / `os.uptime`)**:
-  - Continuous monotonic hardware-clock tracking makes it mathematically impossible to roll back the system clock during runtime to prolong expired sessions.
-* **Hardware-Bound Dynamic HMAC Secret**:
-  - Monotonic timestamp anchors are cryptographically signed using hardware entropy derived from Windows `MachineGuid` and salted key derivation rather than static strings.
-* **NTFS DACL / ACL Binary Hardening (Mitigating CVE-2025-55305 / GHSA-vmqv-hx8q-j7mg)**:
-  - Automated NSIS post-install security lock (`icacls ... /deny ...:(WD,AD,WEA,WA)`) applied directly to `app.asar`, `MathEd Type.exe`, and V8 snapshots (`v8_context_snapshot.bin`, `snapshot_blob.bin`).
-  - Blocks local user processes and unauthorized scripts from writing or modifying runtime binaries.
-* **Native Windows ASAR Integrity Validation Fuse (`EnableEmbeddedAsarIntegrityValidation`)**:
-  - Embedded Windows PE `INTEGRITY / ELECTRONASAR` resource block containing cryptographic SHA-256 header hash of `resources\app.asar`.
-  - Electron fuses `EnableEmbeddedAsarIntegrityValidation: true` and `OnlyLoadAppFromAsar: true` enforced at native C++ level.
-  - If `app.asar` is modified or repacked by even 1 byte, Electron aborts execution immediately.
-* **Complete Main Process V8 Bytecode Compilation (`main-core.jsc`)**:
-  - 100% of the core main process logic (window lifecycle, IPC handlers, license manager, security gatekeepers) is compiled into native V8 bytecode.
-  - `main.cjs` is reduced to a minimal bootstrapper; zero plaintext application JavaScript exists in the packaged distribution.
-* **100% Cryptographic Ed25519 Licensing Architecture**:
-  - Complete elimination of local automatic trials. Unactivated installations require an Ed25519 digital signature key.
-  - Trial keys strictly require hardware Machine ID binding (`m !== '*'`) and positive expiration (`exp > iss > 0`).
-  - Deleting local files or registry keys simply resets the app to an unactivated state; no local trial engine exists to reset.
+* **Patched Electron 35.7.5 Runtime (Mitigating CVE-2025-55305 / GHSA-vmqv-hx8q-j7mg)**:
+  - Upgraded the underlying Electron framework to **Electron 35.7.5**, incorporating the official upstream security fix for CVE-2025-55305.
+  - Native C++ ASAR integrity and Electron fuses (`EnableEmbeddedAsarIntegrityValidation: true`, `OnlyLoadAppFromAsar: true`, `RunAsNode: false`, `EnableNodeCliInspectArguments: false`, `EnableNodeOptionsEnvironmentVariable: false`) enforced directly on the native binary.
+* **Protected Installation Directory (`%ProgramFiles%\MathEd Type`)**:
+  - The installer now installs to `%ProgramFiles%\MathEd Type` with administrative execution privileges (`RequestExecutionLevel admin`).
+  - Standard user accounts in Windows have **Read & Execute ONLY** (zero write access, zero delete access, zero append access) under Program Files, eliminating the filesystem write-access prerequisite for ASAR modification.
+* **Comprehensive NTFS DACL / ACL Hardening**:
+  - NSIS installer applies strict `icacls ... /deny ...:(D,WD,AD,WEA,WA)` denying Delete `(D)`, Write Data `(WD)`, Append Data `(AD)`, Write Extended Attributes `(WEA)`, and Write Attributes `(WA)` with verified execution return codes.
+* **Cryptographically Bound Uptime & Clock Rollback Defense**:
+  - `license-manager.js` now cryptographically binds `lastSeen`, `lastUptime`, and `keyHash` together into the HMAC signature (`signRecord`).
+  - Tampering with `lastUptime` or `lastSeen` in local JSON files immediately breaks the HMAC signature and triggers anti-tamper revocation.
+* **Awaited Authenticated HTTPS Network Time Synchronization**:
+  - Startup checks now await HTTPS TLS network time queries (`ensureNetworkTime`) against Cloudflare, Google, and Microsoft before validating licenses.
+  - Expired licenses are immediately and irrevocably revoked before UI rendering, immune to local PC clock manipulation.
+* **Multi-Factor Dynamic HMAC Secret**:
+  - Derived dynamically at runtime from Hardware Machine ID, Windows Registry `MachineGuid`, Windows `DigitalProductId`, and Windows user account identity (`USERDOMAIN\USERNAME`) via multi-round SHA-512 hashing.
+* **Multi-Root Redundant Revocation Store**:
+  - Revocations are persisted redundantly across `HKCU\Software\MathEdType\Revocations`, hidden CLSID registry anchors, and a hidden system cache index file.
 * **Authenticode Code Signing & RFC 3161 Timestamping**:
-  - `MathEd Type.exe` and installers are digitally signed and timestamped using DigiCert RFC 3161 timestamp authorities.
+  - `MathEd Type.exe` and installers are digitally signed with Windows Authenticode and timestamped via DigiCert RFC 3161 timestamp responders.
+  - Public certificate `MathEdType-Publisher-Root.cer` and helper installer `Install-Publisher-Cert.ps1` are included for full trust chain verification.
 
 ### 📥 Downloads
 | File | Description | Size |
 | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 80.83 MB |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 80.83 MB |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91.01 MB |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91.01 MB |
 | **`latest.yml`** | Auto-updater release manifest | 352 B |
+| **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B |
+| **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B |
 
 ### 🛠️ Verification & SHA256 Checksums
-* **`MathEdType-Setup-v0.1.67.exe`**: `B9A8FF34D1C3CD955B3AFA454DFFDDC423BC9ADACCBACDE57125BC1154665B97`
-* **`MathEdType-Setup.exe`**: `4CEE911C6E199A2212C413BD9D169805413DA5296BDB782869FDCDF5430DF776`
+* **`MathEdType-Setup-v0.1.67.exe`**: `C536F7E2854AB4AA95E02067A1DB54058D0AAF9816A4F9EC365F3A85D838FEA4`
+* **`MathEdType-Setup.exe`**: `BCD590A9A458AADBA842E2A70F9989D75B3F1E8D11EBA6E99F1DF34855BA0782`

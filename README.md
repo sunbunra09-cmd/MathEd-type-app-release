@@ -65,9 +65,10 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 ## 📋 Release Information
 
-* **Latest Version**: `v0.1.67` (100% Cryptographic Ed25519 Edition)
+* **Latest Version**: `v0.1.67` (Electron 35.7.5 Hardened Edition)
 * **Installer Name**: `MathEdType-Setup-v0.1.67.exe` (and `MathEdType-Setup.exe`)
-* **Package Size**: `80.83 MB`
-* **SHA256**: `B9A8FF34D1C3CD955B3AFA454DFFDDC423BC9ADACCBACDE57125BC1154665B97`
+* **Package Size**: `91.01 MB`
+* **SHA256**: `C536F7E2854AB4AA95E02067A1DB54058D0AAF9816A4F9EC365F3A85D838FEA4`
 * **Release Date**: October 2026
+
 
