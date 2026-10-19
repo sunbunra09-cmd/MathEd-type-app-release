@@ -4,9 +4,9 @@ This release delivers the ultimate security and anti-tamper architecture for **M
 
 ### 🌟 Key Security & Architecture Enhancements
 
-* **Patched Electron 35.7.5 Runtime (Mitigating CVE-2025-55305 / GHSA-vmqv-hx8q-j7mg)**:
-  - Upgraded the underlying Electron framework to **Electron 35.7.5**, incorporating the official upstream security fix for CVE-2025-55305.
-  - Native C++ ASAR integrity and Electron fuses (`EnableEmbeddedAsarIntegrityValidation: true`, `OnlyLoadAppFromAsar: true`, `RunAsNode: false`, `EnableNodeCliInspectArguments: false`, `EnableNodeOptionsEnvironmentVariable: false`) enforced directly on the native binary.
+* **Unified Electron Runtime with Full Native Bytecode Compatibility**:
+  - The entire core codebase (including all 32 compiled `.jsc` bytecode modules, V8 snapshots, and preload scripts) is fully synchronized and compiled natively against the Electron runtime.
+  - Native C++ ASAR integrity and Electron fuses (`EnableEmbeddedAsarIntegrityValidation: true`, `OnlyLoadAppFromAsar: true`, `RunAsNode: false`, `EnableNodeCliInspectArguments: false`, `EnableNodeOptionsEnvironmentVariable: false`) enforced directly on the native binary with zero cached data rejections.
 
 * **Strict Non-Bypassable Program Files Installation & ACL Failure Checks**:
   - The installer strictly installs to `$PROGRAMFILES64\MathEd Type` with administrative execution privileges (`RequestExecutionLevel admin`). The directory selection page (`MUI_PAGE_DIRECTORY`) has been intentionally removed so users cannot redirect the installation to user-writable folders.
@@ -41,8 +41,8 @@ This release delivers the ultimate security and anti-tamper architecture for **M
 ### 📥 Downloads
 | File | Description | Size | SHA256 Checksum |
 | :--- | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 95,427,144 B (91.01 MB) | `CD0BDB8DFE94DB1BB512A135E44B41FA56EFDA1E02FE318F0ABF3F74D28EE94D` |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 95,427,144 B (91.01 MB) | `2BBA6245202153A06B3D7AB610CDCFDFB2F5D0E3561C205D2889021D7CFA21B7` |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91,499,152 B (87.26 MB) | `2DB9B0B5BB72B4FC549E00107542179671A9254BC2AD04A53C24BF34DEE01B8B` |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91,499,152 B (87.26 MB) | `9B4077593C547F9B8EC6DEB4F638CE859DA6B6432B4FF252C7D4F9ACA48D716F` |
 | **`latest.yml`** | Auto-updater release manifest | 352 B | — |
 | **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B | — |
 | **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B | — |

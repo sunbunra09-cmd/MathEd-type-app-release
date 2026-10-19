@@ -34,7 +34,7 @@ Click the button below to download the latest all-in-one standalone installer fo
   * MathEd Type stays closed in the background when Word or documents open.
   * Starts only when you explicitly click a ribbon button or double-click an equation.
 * **All-in-One Standalone Setup**:
-  * Single setup `.exe` (~91 MB) with zero external requirements.
+  * Single setup `.exe` (~87 MB) with zero external requirements.
   * No Node.js, npm, or developer SDKs needed on the client computer.
 * **Enterprise Hardening & System-Wide Installation**:
   * Installs to `%PROGRAMFILES%\MathEd Type` with verified NTFS DACL write protections.
@@ -65,10 +65,10 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 ## 📋 Release Information
 
-* **Latest Version**: `v0.1.67` (Electron 35.7.5 Hardened Edition)
+* **Latest Version**: `v0.1.67` (Hardened Enterprise Edition)
 * **Installer Name**: `MathEdType-Setup-v0.1.67.exe` (and `MathEdType-Setup.exe`)
-* **Package Size**: `95,427,144 bytes` (`91.01 MB`)
+* **Package Size**: `91,499,152 bytes` (`87.26 MB`)
 * **SHA256 Checksums**:
-  - `MathEdType-Setup-v0.1.67.exe`: `CD0BDB8DFE94DB1BB512A135E44B41FA56EFDA1E02FE318F0ABF3F74D28EE94D`
-  - `MathEdType-Setup.exe`: `2BBA6245202153A06B3D7AB610CDCFDFB2F5D0E3561C205D2889021D7CFA21B7`
+  - `MathEdType-Setup-v0.1.67.exe`: `2DB9B0B5BB72B4FC549E00107542179671A9254BC2AD04A53C24BF34DEE01B8B`
+  - `MathEdType-Setup.exe`: `9B4077593C547F9B8EC6DEB4F638CE859DA6B6432B4FF252C7D4F9ACA48D716F`
 * **Release Date**: October 2026
