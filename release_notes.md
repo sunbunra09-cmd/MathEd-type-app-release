@@ -47,8 +47,8 @@ This release delivers the ultimate security and anti-tamper architecture for **M
 ### 📥 Downloads
 | File | Description | Size | SHA256 Checksum |
 | :--- | :--- | :--- | :--- |
-| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91,480,360 B (87.24 MB) | `129687FE821FD9352D3E180D0F5B2856DBF730EBF4870D79256CF828A15A4772` |
-| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91,480,360 B (87.24 MB) | `53B93B923F4CBAD1B0AFEF18C37C76B6F6C6A22BF270771C38980CAD4A0CEA84` |
+| **`MathEdType-Setup-v0.1.67.exe`** | Versioned standalone installer | 91,429,000 B (87.19 MB) | `E5E0E514D0FF2E715970FFA358797466C4D2FEA71EB7DC598AE684E2D98F021A` |
+| **`MathEdType-Setup.exe`** | Latest generic standalone installer | 91,429,000 B (87.19 MB) | `8DC0478464C2075BCDF86CC1CBFC6BA0D70AC9EBF5B69295156F22E4A53F3DE6` |
 | **`latest.yml`** | Auto-updater release manifest | 352 B | — |
 | **`MathEdType-Publisher-Root.cer`** | Public code-signing root certificate | 870 B | — |
 | **`Install-Publisher-Cert.ps1`** | Helper script to install root certificate | 410 B | — |
