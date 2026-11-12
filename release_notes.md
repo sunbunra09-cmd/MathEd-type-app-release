@@ -1,3 +1,16 @@
+## MathEd Type v0.1.69 - Windows Auto-Update Release
+
+This Windows release publishes the signed standalone installer and the stable GitHub update manifest for existing v0.1.68 installations.
+
+### Downloads
+- Versioned installer: MathEdType-Setup-v0.1.69.exe (96.55 MB)
+- Generic installer: MathEdType-Setup.exe
+- Auto-update manifest: latest.yml (version 0.1.69; SHA-512 matches the versioned installer)
+- Publisher certificate: unchanged from v0.1.68; both installers are timestamped with DigiCert RFC 3161.
+
+SHA-256: `B59F1657A54DCE51D34DB78018560ABE4598977136CD1749DCF5D93F881E9A56` (versioned installer), `245349C18B858921A623CD7A69F86314B229EB96C856641B35CFA9BA85449FEC` (generic installer).
+
+---
 ## MathEd Type v0.1.68 - Enterprise Hardening & Zero-Failure Microsoft Word Integration
 
 This release delivers the definitive, 100% reliable COM/OLE integration architecture for **Microsoft Word and PowerPoint**, resolving all single-instance mutex collisions, cross-bitness activation failures, and VSTO manifest conflicts alongside the complete 5-layer anti-tamper security defense:

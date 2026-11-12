@@ -1,6 +1,6 @@
 # MathEd Type for Windows 📐
 
-[![Release Version](https://img.shields.io/badge/Release-v0.1.68-blue?style=flat-square&logo=github)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
+[![Release Version](https://img.shields.io/badge/Release-v0.1.69-blue?style=flat-square&logo=github)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 [![Windows](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D4?style=flat-square&logo=windows)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 [![License](https://img.shields.io/badge/License-Proprietary-green?style=flat-square)](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest)
 
@@ -14,11 +14,11 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 <p align="center">
   <a href="https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup.exe">
-    <img src="https://img.shields.io/badge/⬇️%20Download-MathEd%20Type%20v0.1.68%20(Windows%20Installer)-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download MathEd Type" />
+    <img src="https://img.shields.io/badge/⬇️%20Download-MathEd%20Type%20v0.1.69%20(Windows%20Installer)-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download MathEd Type" />
   </a>
 </p>
 
-*Alternative download link:* [**`MathEdType-Setup-v0.1.68.exe` (Direct Download)**](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup-v0.1.68.exe)
+*Alternative download link:* [**`MathEdType-Setup-v0.1.69.exe` (Direct Download)**](https://github.com/sunbunra09-cmd/MathEd-type-app-release/releases/latest/download/MathEdType-Setup-v0.1.69.exe)
 
 ---
 
@@ -34,7 +34,7 @@ Click the button below to download the latest all-in-one standalone installer fo
   * MathEd Type stays closed in the background when Word or documents open.
   * Starts only when you explicitly click a ribbon button or double-click an equation.
 * **All-in-One Standalone Setup**:
-  * Single setup `.exe` (~87 MB) with zero external requirements.
+  * Single setup `.exe` (~96.55 MB) with zero external requirements.
   * No Node.js, npm, or developer SDKs needed on the client computer.
 * **Enterprise Hardening & System-Wide Installation**:
   * Installs to `%PROGRAMFILES%\MathEd Type` with verified NTFS DACL write protections.
@@ -65,10 +65,10 @@ Click the button below to download the latest all-in-one standalone installer fo
 
 ## 📋 Release Information
 
-* **Latest Version**: `v0.1.68` (Hardened Enterprise Edition)
-* **Installer Name**: `MathEdType-Setup-v0.1.68.exe` (and `MathEdType-Setup.exe`)
-* **Package Size**: `91,448,281 bytes` (`87.21 MB`)
+* **Latest Version**: `v0.1.69` (Windows Desktop Release)
+* **Installer Name**: `MathEdType-Setup-v0.1.69.exe` (and `MathEdType-Setup.exe`)
+* **Package Size**: `101,240,264 bytes` (`96.55 MB`)
 * **SHA256 Checksums**:
-  - `MathEdType-Setup-v0.1.68.exe`: `A9B74D17429B7681AE295EECB48826AB25FDF6C4DE708953B8CCF10BA8A49D4D`
-  - `MathEdType-Setup.exe`: `2A22B2E635A4586588D68938C8C2EAB70053CFED4F117CC616FE1A1E40723C0A`
-* **Release Date**: October 2026
+  - `MathEdType-Setup-v0.1.69.exe`: `B59F1657A54DCE51D34DB78018560ABE4598977136CD1749DCF5D93F881E9A56`
+  - `MathEdType-Setup.exe`: `245349C18B858921A623CD7A69F86314B229EB96C856641B35CFA9BA85449FEC`
+* **Release Date**: November 12, 2026

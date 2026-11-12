@@ -1,8 +1,8 @@
-version: 0.1.68
+version: 0.1.69
 files:
-  - url: MathEdType-Setup-v0.1.68.exe
-    sha512: fxltTMh3ESjD1OkhkYXSeb6BnKbqzP9jQ1X2OK9C3h1Ut+Fss0x1A4z8C0tRfA6+6BLhuQ2vw8ieQ4z0XmteKw==
-    size: 91455576
-path: MathEdType-Setup-v0.1.68.exe
-sha512: fxltTMh3ESjD1OkhkYXSeb6BnKbqzP9jQ1X2OK9C3h1Ut+Fss0x1A4z8C0tRfA6+6BLhuQ2vw8ieQ4z0XmteKw==
-releaseDate: '2026-10-19T09:37:48.476Z'
+  - url: MathEdType-Setup-v0.1.69.exe
+    sha512: Oucej6VhUi9VLH5yt1cMFUpq3O4BTPSbUGnxFXVCloDBdKcCj8T+jkLNfsVecLAyTlE9H49ad+1lxQa/oCLzBg==
+    size: 101240264
+path: MathEdType-Setup-v0.1.69.exe
+sha512: Oucej6VhUi9VLH5yt1cMFUpq3O4BTPSbUGnxFXVCloDBdKcCj8T+jkLNfsVecLAyTlE9H49ad+1lxQa/oCLzBg==
+releaseDate: '2026-11-12T07:48:00.191Z'
